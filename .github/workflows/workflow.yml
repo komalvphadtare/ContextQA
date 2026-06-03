@@ -1,8 +1,6 @@
 name: Run ContextQA Tests
 on:
-  push:
-    branches: [main, develop]
-  default: 'On-demand run'
+  workflow_dispatch:
 
 jobs:
   test:
