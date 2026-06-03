@@ -25,7 +25,7 @@ jobs:
 
           # Authenticate
           auth_resp = requests.post(
-              'https://server.contextqa.com/api/v1/auth/login',
+              'https://parkar.contextqa.com/api/v1/auth/login',
               json={'username': username, 'password': password},
               timeout=30
           )
@@ -35,7 +35,7 @@ jobs:
 
           # Trigger test plan execution (GET request)
           run_resp = requests.get(
-              f'https://server.contextqa.com/api/v1/testplans/{plan_id}/execute',
+              f'https://parkar.contextqa.com/api/v1/testplans/{plan_id}/execute',
               headers=headers,
               timeout=30
           )
@@ -47,7 +47,7 @@ jobs:
           for attempt in range(60):
               time.sleep(30)
               status_resp = requests.get(
-                  f'https://server.contextqa.com/api/v1/executions/{execution_id}/status',
+                  f'https://parkar.contextqa.com/api/v1/executions/{execution_id}/status',
                   headers=headers,
                   timeout=30
               )
